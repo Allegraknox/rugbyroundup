@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Rugby Roundup</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel=stylesheet href="css/styleSheet_rugby.css"/>
+</head>
+<body>
+
+<script src="js/Three.js"></script>
+<script src="js/Detector.js"></script>
+<script src="js/Stats.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script src="js/THREEx.KeyboardState.js"></script>
+<script src="js/THREEx.FullScreen.js"></script>
+<script src="js/THREEx.WindowResize.js"></script>
+<script src="js/animateCharacters.js"></script>
+<script src="js/collisions.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/palatte.js"></script>
+<script src="js/model_uprights.js"></script>
+<script src="js/model_balls.js"></script>
+<script src="js/model_tree.js"></script>
+<script src="js/model_person.js"></script>
+<script src="js/init_scene.js"></script>
+<script src="js/childRoute.js"></script>
+<script src="js/menuControls.js"></script>
+
+
+<!-- jQuery code to display an information button and box when clicked. -->
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery-ui.js"></script>
+<link rel=stylesheet href="css/jquery-ui.css" />
+<link rel=stylesheet href="css/info.css"/>
+<script src="js/info.js"></script>
+<div id="infoBox" title="Demo Information">
+This three.js demo is part of a collection at
+<a href="http://stemkoski.github.io/Three.js/">http://stemkoski.github.io/Three.js/</a>
+</div>
+<!-- ------------------------------------------------------------ -->
+
+<div id="ThreeJS" style="position: absolute; left:0px; top:0px"></div>
+
+
+
+<div id="scoreboard"></div>
+<div id="pauseScreen"></div>
+<div id="startScreenWrapper"></div>
+<div id = "levelUpWrapper"></div>
+<div id = "youWinWrapper"></div>
+<script>
+/*
+Three.js "tutorials by example"
+Author: Lee Stemkoski
+Date: July 2013 (three.js v59dev)
+*/
+
+// MAIN
+
+// standard global variables
+var container, scene, camera, renderer, controls, stats;
+var keyboard = new THREEx.KeyboardState();
+var clock = new THREE.Clock();
+
+var models;
+var childfn=0;
+var Balls;
+var currentLevel;
+var currentScore;
+var paused;
+var ballsLeft;
+var levels = [level1,level2,level3];
+var levelNum;
+const HERO = 0;
+const CHILDREN = 1;
+const MAXLEVEL = 2; //if the user beats level3, they win the game since we only coded 3 levels.
+
+
+init();
+animate();
+
+// FUNCTIONS
+function init()
+{
+levelNum = 0;//incremented when user beats the level
+currentLevel = levels[levelNum];
+ballsLeft = currentLevel.numBalls;
+currentScore = 0;
+
+makeScene();
+//makeStats();
+makeLight();
+makeSkybox();
+makeFloor();
+makeScoreboard();
+initCharAnim();
+Balls = populateBalls(currentLevel.numBalls,currentLevel.populationRate);
+drawBalls();
+
+models = makeModels();
+//scene.add(models[HERO]);
+addKids();
+showTitleScreen();
+// models[HERO].scale.x = 3;
+// models[HERO].scale.y = 3;
+// models[HERO].scale.z = 3;
+// models[HERO].position.y = -24.5;
+// models[HERO].position.z = -10;
+
+// axes
+// var axes = new THREE.AxisHelper(100);
+// scene.add( axes );
+
+document.addEventListener("keydown", doKey, false);
+document.addEventListener("keyup", stopKey, false);
+
+}
+</script>
+</body>
+</html>
