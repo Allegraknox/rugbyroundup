@@ -66,7 +66,7 @@ function showTitleScreen(){
   var char6 = document.getElementById('char6');
   var char7 = document.getElementById('char7');
 
-  char1.innerHTML = '<img src= "../images/allegra.png"><p class="name">Allegra "Legs"</p><h6>(Kinda fast)</h6>';
+  char1.innerHTML = '<img src= "images/allegra.png"><p class="name">Allegra "Legs"</p><h6>(Kinda fast)</h6>';
   char2.innerHTML = '<img src= "../images/emma.png"><p class="name">Emma</p><h6>(Pretty fast)</h6>';
   char3.innerHTML = '<img src= "../images/val.png"><p class="name">Val</p><h6>(Very fast)</h6>';
   char4.innerHTML = '<img src= "../images/nicole.png"><p class="name">Nicole</p><h6>(Pretty fast)</h6>';
