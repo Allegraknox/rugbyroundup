@@ -1,6 +1,6 @@
 # Rugby Roundup
 
-Play the game here!
+# Play the game here!
 https://www.cs.colgate.edu/~efourquet/cosc435/gallery/2019/RugbyRoundUp/index.html
 
 # Game Overview
