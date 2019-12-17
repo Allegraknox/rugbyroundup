@@ -1,5 +1,8 @@
 # Rugby Roundup
 
+#play the game here!
+https://www.cs.colgate.edu/~efourquet/cosc435/gallery/2019/RugbyRoundUp/index.html
+
 # Game Overview
 
 We developed Rugby Roundup for our final project in the Introduction to Computer Graphics (COSC 435) course taught by Elodie Fourquet at Colgate University.
